@@ -20,12 +20,22 @@ import { Component, Prop } from 'vue-property-decorator'
 export default class AddressView extends Vue {
   @Prop({ type: String, required: true }) title!: string
   @Prop({ type: Object, required: true }) data!: any
-
-  // props: {
-  //   title: String,
-  //   data: {},
-  // },
 }
 </script>
 
-<style></style>
+<style>
+.col1 {
+  width: 45vw;
+}
+.col1 > div {
+  border: 2px solid rgb(207, 207, 207);
+  border-radius: 4px;
+  margin: 1em;
+  padding: 1em;
+  background-color: #eee;
+}
+.col1 > h1,
+.col1 > p {
+  margin-left: 50px;
+}
+</style>

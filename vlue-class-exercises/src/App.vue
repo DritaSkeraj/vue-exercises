@@ -5,7 +5,7 @@
       <p>there we goo🚀🚀🚀</p>
       <AddressView title="Shipping data" :data="shipping" />
       <AddressView title="Billing" :data="parsedBilling" />
-      <AddressView title="Billing 2" :data="getParsedBilling()" />
+      <!-- <AddressView title="Billing 2" :data="getParsedBilling()" /> -->
       <div>
         <input type="checkbox" v-model="isChecked" name="checkbox" />
         <label for="checkbox"> Are the billing and shipping addresses same?</label>
@@ -81,42 +81,9 @@ export default class App extends Vue {
 .title {
   margin: 0 auto;
 }
-.col1 {
-  width: 45vw;
-}
-.col1 > div {
-  border: 2px solid rgb(207, 207, 207);
-  border-radius: 4px;
-  margin: 1em;
-  padding: 1em;
-  background-color: #eee;
-}
-.col1 > h1,
-.col1 > p {
-  margin-left: 50px;
-}
 h4 {
   text-decoration: underline;
   color: #8731d2;
 }
-.col2 {
-  width: 45vw;
-  height: 88vh;
-  position: fixed;
-  left: 45vw;
-  display: flex;
-  flex-direction: column;
-  background-color: #d2d9e7;
-  border-radius: 4px;
-  color: #0d2554;
-  border-radius: 4px;
-  margin: 1em;
-  padding: 1em;
-}
-.col2 > input {
-  margin: 0.5em;
-  padding: 0.5em;
-  border: 1px solid gray;
-  border-radius: 4px;
-}
+
 </style>
