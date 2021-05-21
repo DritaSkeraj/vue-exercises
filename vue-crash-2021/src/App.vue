@@ -1,104 +1,138 @@
 <template>
   <div class="container">
-    <Header title="Task Tracker" />
-    <Tasks
-      :tasks="tasks"
-      @delete-task="deleteTask"
-      @toggle-reminder="toggleReminder"
-    />
+    <div class="col1">
+      <h1>Execise1:</h1>
+      <p>there we goo🚀🚀🚀</p>
+      <AddressView title="Shipping data" :data="shipping" />
+      <div v-if="isChecked">
+        <AddressView title="Billing data" :data="billing" />
+      </div>
+      <div v-else>
+        <AddressView title="Billing data" :data="onClick()" v-if="!isChecked" />
+      </div>
+
+      <div>
+        <input
+          type="checkbox"
+          v-model="isChecked"
+          name="checkbox"
+          @click="onClick"
+        />
+        <label for="checkbox">
+          Are the billing and shipping addresses same?</label
+        >
+      </div>
+    </div>
+    <div class="col2" v-if="!isChecked">
+      <input type="text" v-model="billing.shippingName" />
+      <input type="text" v-model="billing.shippingLastName" />
+      <input type="text" v-model="billing.shippingStreet" />
+      <input type="text" v-model="billing.houseNumber" />
+      <input type="text" v-model="billing.zipCode" />
+      <input type="text" v-model="billing.city" />
+      <input type="text" v-model="billing.country" />
+      <input type="text" v-model="billing.notes" />
+    </div>
   </div>
 </template>
 
-<script>
-import Header from "./components/Header";
-import Tasks from "./components/Tasks";
-export default {
+<script lang="js">
+import Vue from 'vue'
+import data from "./@data";
+import AddressView from "./components/AddressView.vue";
+import { Component, Prop } from "vue-property-decorator";
+
+
+export default{
   name: "App",
   components: {
-    Header,
-    Tasks,
+    AddressView
   },
   data() {
     return {
-      tasks: [],
+      shipping: {
+        shippingName: data.shipping.name,
+        shippingLastName: data.shipping.lastName,
+        shippingStreet: data.shipping.street,
+        houseNumber: data.shipping.houseNumber,
+        zipCode: data.shipping.zipCode,
+        city: data.shipping.city,
+        country: data.shipping.country,
+        notes: data.shipping.notes,
+      },
+      billing: {
+        shippingName: data.billing.name,
+        shippingLastName: data.billing.lastName,
+        shippingStreet: data.billing.street,
+        houseNumber: data.billing.houseNumber,
+        zipCode: data.billing.zipCode,
+        city: data.billing.city,
+        country: data.billing.country,
+        notes: data.billing.notes,
+      },
+      isChecked: true,
     };
   },
   methods: {
-    deleteTask(id) {
-      if (confirm("Are you sure?"))
-        this.tasks = this.tasks.filter((task) => task.id !== id);
-    },
-    toggleReminder(id) {
-      this.tasks = this.tasks.map((task) =>
-        task.id === id ? { ...task, reminder: !task.reminder } : task
-      );
-    },
-  },
-  created() {
-    this.tasks = [
-      {
-        id: 1,
-        text: "Doctors Appointment",
-        day: "March 1st at 2:30pm",
-        reminder: true,
-      },
-      {
-        id: 2,
-        text: "Meeting at School",
-        day: "March 1st at 1:30pm",
-        reminder: true,
-      },
-      {
-        id: 3,
-        text: "Food Shopping",
-        day: "March 1st at 3:30pm",
-        reminder: false,
-      },
-    ];
-  },
-};
+    onClick() {
+      let billingObj = this.billing;
+      console.log("clicked, obj: ", billingObj, "checked: ",  this.isChecked);
+      return billingObj;
+    }
+  }
+
+ }
 </script>
 
-<style>
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+<style scoped>
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-body {
-  font-family: "Poppins", sans-serif;
+  color: #300d4f;
+  font-weight: 500;
 }
 .container {
-  max-width: 500px;
-  margin: 30px auto;
-  overflow: auto;
-  min-height: 300px;
-  border: 1px solid steelblue;
-  padding: 30px;
-  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-basis: 1;
 }
-.btn {
-  display: inline-block;
-  background: #000;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  margin: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 15px;
-  font-family: inherit;
+.title {
+  margin: 0 auto;
 }
-.btn:focus {
-  outline: none;
+.col1 {
+  width: 45vw;
 }
-.btn:active {
-  transform: scale(0.98);
+.col1 > div {
+  border: 2px solid rgb(207, 207, 207);
+  border-radius: 4px;
+  margin: 1em;
+  padding: 1em;
+  background-color: #eee;
 }
-.btn-block {
-  display: block;
-  width: 100%;
+.col1 > h1,
+.col1 > p {
+  margin-left: 50px;
+}
+h4 {
+  text-decoration: underline;
+  color: #8731d2;
+}
+.col2 {
+  width: 45vw;
+  height: 88vh;
+  position: fixed;
+  left: 45vw;
+  display: flex;
+  flex-direction: column;
+  background-color: #d2d9e7;
+  border-radius: 4px;
+  color: #0d2554;
+  border-radius: 4px;
+  margin: 1em;
+  padding: 1em;
+}
+.col2 > input {
+  margin: 0.5em;
+  padding: 0.5em;
+  border: 1px solid gray;
+  border-radius: 4px;
 }
 </style>
