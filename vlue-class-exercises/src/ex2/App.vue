@@ -2,7 +2,7 @@
   <div class="app-container">
     <div class="col1">
       <h1>Execise2:</h1>
-      <p>🚀🚀🚀there we goo🚀🚀🚀</p>
+      <p>🚀🚀🚀there we gooo🚀🚀🚀</p>
     </div>
     <div v-if="loading">
       <p>loading...</p>
@@ -33,10 +33,10 @@ import Comment from './Comment.vue'
   }
 })
 export default class App extends Vue {
-  @Prop({}) comments?: any
-  @Prop({}) loading = true
-  @Prop({}) error?: boolean = false
-  @Prop({}) data: CommentInterface = {
+  comments: any = [] ///!?mostly for props
+  loading = true
+  error?: boolean = false
+  data: CommentInterface = {
     avatar: 'string',
     name: 'string',
     username: 'string',
@@ -44,6 +44,7 @@ export default class App extends Vue {
   }
 
   async created() {
+    ////maybe mounted()
     try {
       await axios
         .post(
@@ -68,7 +69,7 @@ export default class App extends Vue {
     return this.loading
   }
   log(msg: string): void {
-    console.log('🟢🟢🟢🟢🟢', msg)
+    console.log('🟢', msg)
   }
 }
 </script>

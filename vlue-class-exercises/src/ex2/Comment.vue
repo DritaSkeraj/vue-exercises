@@ -3,10 +3,10 @@
     <div class="comment-container">
       <div class="col1">
         <img :src="comment.avatar" />
-        <h6>{{ comment.username }}</h6>
+        <h6>🤖 {{ comment.username }}</h6>
       </div>
       <div class="col2">
-        <p>{{ comment.message }}</p>
+        <p>✏ {{ comment.message }}</p>
       </div>
     </div>
   </div>
@@ -27,7 +27,7 @@ export default class Comment extends Vue {
 .comment-container {
   margin: 1em 4em;
   padding: 0.5em;
-  border: 1px solid salmon;
+  border: 1px solid black;
   display: flex;
   flex-direction: row;
 }
