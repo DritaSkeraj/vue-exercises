@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="comment-container" v-if="comment.avatar">
+    <div class="comment-container">
       <div class="col1">
         <img :src="comment.avatar" />
         <h6>{{ comment.username }}</h6>
@@ -9,20 +9,17 @@
         <p>{{ comment.message }}</p>
       </div>
     </div>
-    <div class="comment-container" v-if="comment.errorMessage">
-      <p>Whoops. Something went wrong :/</p>
-    </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { Component, Prop, Emit, Watch } from 'vue-property-decorator'
+import { Component, Prop } from 'vue-property-decorator'
 import { CommentInterface } from './CommentInterface'
 
 @Component
 export default class Comment extends Vue {
-  @Prop({ type: Object, required: true }) comment!: CommentInterface | any
+  @Prop({ type: Object, required: true }) comment!: CommentInterface
 }
 </script>
 
