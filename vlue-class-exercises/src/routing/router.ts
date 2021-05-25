@@ -10,6 +10,7 @@ import NestedGrandchild2 from './views/NestedGrandchild2.vue'
 import NestedGrandchild3 from './views/NestedGrandchild3.vue'
 import Protected from './views/Protected.vue'
 import PartiallyProtected from './views/PartiallyProtected.vue'
+import NotFound from './views/NotFound.vue'
 import Sub from './views/Sub.vue'
 import SubProtected from './views/SubProtected.vue'
 import { Position } from 'vue-router/types/router'
@@ -99,6 +100,10 @@ const routes = [
         }
       }
     ]
+  },
+  {
+    path: '*',
+    component: NotFound
   }
 ]
 

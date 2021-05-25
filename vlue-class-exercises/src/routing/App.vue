@@ -1,7 +1,10 @@
 <template>
   <Layout>
-    <div class="columns">
-      <div class="column is-one-quarter">
+    <div class="jumbotron">
+      <h1>Routing examples</h1>
+    </div>
+    <div class="columns container">
+      <div class="column column1">
         <aside class="menu">
           <p class="menu-label">
             Basics
@@ -80,9 +83,33 @@
           </ul>
         </aside>
       </div>
-      <div class="column">
+      <div class="column column2">
         <router-view></router-view>
       </div>
     </div>
   </Layout>
 </template>
+<style>
+body {
+  background: rgb(243, 253, 255);
+  background: radial-gradient(circle, rgba(243, 253, 255, 1) 0%, rgba(237, 240, 240, 1) 100%);
+}
+.columns {
+  display: flex;
+  flex-direction: row;
+}
+.column1 {
+  width: 30vw;
+}
+.column2 {
+  min-width: 40vw;
+  margin-left: 4vw !important;
+}
+.jumbotron {
+  height: 45vh;
+  background: rgb(1, 103, 117);
+  background: linear-gradient(90deg, rgba(1, 103, 117, 1) 0%, rgba(0, 226, 216, 1) 100%);
+  color: white;
+  text-align: center;
+}
+</style>
