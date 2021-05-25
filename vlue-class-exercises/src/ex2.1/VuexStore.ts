@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Vuex, { Store } from 'vuex'
+import Vuex from 'vuex'
 import axios from 'axios'
 // import cloneDeep from 'lodash/cloneDeep';
 // import reduce from 'lodash/reduce';

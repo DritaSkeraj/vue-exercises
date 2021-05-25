@@ -3,15 +3,13 @@
     <div class="title">
       <h1>Execise3:</h1>
       <h6>api call with vuex state</h6>
-      <p>🚀🚀🚀to the moooooon🚀🚀🚀</p>
+      <p>🚀🚀🚀lets goooo🚀🚀🚀</p>
     </div>
     <div v-if="this.$store.state.loading">
       <p class="loading">loadinggg...</p>
     </div>
-    <div>
-      <div :key="index" v-for="(comment, index) in this.$store.state.comments">
-        <Comment :comment="comment" />
-      </div>
+    <div v-else :key="index" v-for="(comment, index) in this.$store.state.comments">
+      <Comment :comment="comment" />
     </div>
     <div v-if="this.$store.state.error">
       <p class="error">Error while fetching data</p>
