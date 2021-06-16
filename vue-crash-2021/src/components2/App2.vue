@@ -27,6 +27,7 @@ export default {
     deleteTask(id) {
       if (confirm("Are you sure?"))
         this.tasks = this.tasks.filter((task) => task.id !== id);
+        console.log('confirmed!')
     },
     toggleReminder(id) {
       this.tasks = this.tasks.map((task) =>
